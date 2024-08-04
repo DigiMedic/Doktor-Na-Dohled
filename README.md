@@ -99,11 +99,4 @@ h1, h2, h3 {
 - **Cílová skupina**: Obyčejní lidé hledající snadný přístup k zdravotní péči.
 - **Komunikace**: Platforma by měla být prezentována jako spolehlivý a snadno dostupný zdroj zdravotní péče.
 - **Logo a Vizualizace**: Navrhnout logo, které evokuje důvěru a profesionalitu.
-
-## Další kroky
-
-1. **Prototypování**: Vyvinout funkční prototyp pro testování a zpětnou vazbu.
-2. **Uživatelské testy**: Provést testování s cílovou skupinou pro ověření použitelnosti.
-3. **Iterace a vylepšení**: Na základě zpětné vazby vylepšovat a rozšiřovat funkce platformy.
-4. **Uvedení na trh**: Po úspěšném testování a optimalizaci spustit platformu pro veřejnost.
-
+---

@@ -45,7 +45,10 @@ Pro získávání relevantních informací a kontaktů na poskytovatele zdravotn
 3. **Popis datové sady Národního registru poskytovatelů zdravotních služeb**:
    - URL: [Popis datové sady](https://data.gov.cz/describe/?uri=https://data.gov.cz/zdroj/datov%C3%A9-sady/00024341/aa4c99d9f1480cca59807389cf88d4dc)
 
-Tyto zdroje jsou klíčové pro funkčnost projektu a měly by být využívány při vývoji, zejména při implementaci pomocí FastAPI.
+1. **Národní registr poskytovatelů zdravotních služeb (NZIP)**:
+   - URL: [NZIP vyhledávání](https://www.nzip.cz/clanek/1823-narodni-registr-poskytovatelu-zdravotnich-sluzeb)
+
+Připojeni a možnost čerpat informace o poskytovatelich z statniho registru je klíčové pro funkčnost projektu.
 
 ## Technologie a Architektura
 

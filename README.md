@@ -49,12 +49,53 @@ Tyto zdroje jsou klíčové pro funkčnost projektu a měly by být využívány
 
 ## Technologie a Architektura
 
-- **Backend**: FastAPI pro rychlé a efektivní zpracování API požadavků.
-- **Databáze**: Integrace s databázemi poskytujícími data o zdravotnických službách.
-- **NLP a AI**: Zpracování přirozeného jazyka pro pochopení dotazů uživatelů a doporučování relevantních informací.
+- **Backend**: LangChain - https://github.com/langchain-ai
+- **Frontend**: LangChain - Next.js
+## Branding
+---
 
-## Marketing a Branding
+## 🎨 Barevná paleta
 
+| Barva | Hex kód | Ukázka | Použití |
+|-------|---------|--------|---------|
+| Tmavě modrá | #1B4D6A | ![#1B4D6A](https://via.placeholder.com/50x30/1B4D6A/FFFFFF?text=+) | Hlavní barva pro logo a důležité prvky |
+| Středně modrá | #5B8A9A | ![#5B8A9A](https://via.placeholder.com/50x30/5B8A9A/FFFFFF?text=+) | Sekundární prvky a zvýraznění |
+| Světle modrá | #5BA2C2 | ![#5BA2C2](https://via.placeholder.com/50x30/5BA2C2/FFFFFF?text=+) | Doplňkové prvky a pozadí |
+| Velmi světle modrá | #A8D4E1 | ![#A8D4E1](https://via.placeholder.com/50x30/A8D4E1/000000?text=+) | Jemné akcenty a pozadí |
+| Nejsvětlejší modrá | #E7F5F8 | ![#E7F5F8](https://via.placeholder.com/50x30/E7F5F8/000000?text=+) | Velmi jemné pozadí a oddělovače |
+
+---
+
+## 🖋 Typografie
+
+| Font | Ukázka | Použití |
+|------|--------|---------|
+| **Space Bold Regular** | <span style="font-family: 'Space Mono', monospace;">AaBbCc123</span> | Nadpisy, logo, klíčové prvky |
+| **Space Bold Semibold** | <span style="font-family: 'Space Mono', monospace; font-weight: 600;">AaBbCc123</span> | Zvýraznění, podnadpisy |
+| **Raleway Regular** | <span style="font-family: Raleway, sans-serif;">AaBbCc123</span> | Hlavní text v dokumentech a na webu |
+| **Open Sans** | <span style="font-family: 'Open Sans', sans-serif;">AaBbCc123</span> | Alternativní font pro delší texty |
+
+### 💻 Webové fonty
+
+```html
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Raleway&family=Open+Sans&display=swap" rel="stylesheet">
+```
+
+```css
+body {
+  font-family: 'Raleway', sans-serif;
+}
+
+h1, h2, h3 {
+  font-family: 'Space Mono', monospace;
+}
+
+.alternate-paragraph {
+  font-family: 'Open Sans', sans-serif;
+}
+```
+
+---
 - **Cílová skupina**: Obyčejní lidé hledající snadný přístup k zdravotní péči.
 - **Komunikace**: Platforma by měla být prezentována jako spolehlivý a snadno dostupný zdroj zdravotní péče.
 - **Logo a Vizualizace**: Navrhnout logo, které evokuje důvěru a profesionalitu.

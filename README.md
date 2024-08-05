@@ -22,7 +22,7 @@ Poskytnout uživatelům personalizované doporučení na poskytovatele zdravotni
 ## Technologie a Architektura
 
 - **Backend**: FastAPI, LangChain
-- **Frontend**: Next.js (plánováno)
+- **Frontend**: Next.js, Shadcn-UI komponenty
 - **AI Model**: OpenAI GPT-3.5 Turbo
 - **Databáze**: Simulovaná (plánováno rozšíření na reálnou databázi)
 
@@ -32,15 +32,32 @@ Poskytnout uživatelům personalizované doporučení na poskytovatele zdravotni
 - Vytvořeny základní AI nástroje pro vyhledávání poskytovatelů, analýzu kontextu a personalizaci
 - Implementováno základní zabezpečení včetně rate limitingu a autentizace
 - Připravena struktura pro rozšíření databáze poskytovatelů a zdravotnických informací
+- Implementován základní frontend pomocí Next.js a Shadcn-UI komponent
+- Vytvořeny komponenty pro chat, seznam poskytovatelů a uživatelský profil
+- Implementována real-time komunikace pomocí WebSocket
 
 ## Další kroky
 
-1. Implementace frontendu pomocí Next.js a Shadcn-UI komponent
-2. Rozšíření testovacího pokrytí
-3. Integrace s reálnou databází poskytovatelů zdravotní péče
-4. Vylepšení personalizace a kontextové analýzy
-5. Implementace pokročilejších bezpečnostních opatření
-6. Příprava na produkční nasazení (konfigurace, monitoring, škálování)
+1. Dokončení implementace frontendu:
+   - Integrace všech komponent do hlavní stránky
+   - Implementace stavového managementu pomocí React Context
+   - Optimalizace uživatelského rozhraní pro různé velikosti obrazovek
+2. Rozšíření testovacího pokrytí:
+   - Implementace unit testů pro frontend komponenty
+   - Rozšíření integračních testů pro backend
+3. Integrace s reálnou databází poskytovatelů zdravotní péče:
+   - Návrh a implementace databázového schématu
+   - Migrace dat ze simulované databáze do reálné
+4. Vylepšení personalizace a kontextové analýzy:
+   - Implementace pokročilejších algoritmů pro analýzu uživatelských vstupů
+   - Rozšíření uživatelského profilu o další relevantní informace
+5. Implementace pokročilejších bezpečnostních opatření:
+   - Zavedení JWT autentizace pro frontend
+   - Implementace HTTPS pro zabezpečenou komunikaci
+6. Příprava na produkční nasazení:
+   - Konfigurace prostředí pro různé fáze vývoje (development, staging, production)
+   - Implementace monitoringu a logování
+   - Optimalizace výkonu a škálování aplikace
 
 ## Instalace a spuštění
 
@@ -50,22 +67,36 @@ Poskytnout uživatelům personalizované doporučení na poskytovatele zdravotni
    cd doktor-na-dohled
    ```
 
-2. Instalace závislostí:
+2. Instalace závislostí pro backend:
    ```
    pip install -r requirements.txt
    ```
 
-3. Nastavte proměnné prostředí:
+3. Instalace závislostí pro frontend:
+   ```
+   cd frontend
+   npm install
+   ```
+
+4. Nastavte proměnné prostředí:
    ```
    export OPENAI_API_KEY=your_openai_api_key
    export API_USERNAME=your_api_username
    export API_PASSWORD=your_api_password
    ```
 
-4. Spuštění aplikace:
+5. Spuštění backendu:
    ```
    python app/main.py
    ```
+
+6. Spuštění frontendu:
+   ```
+   cd frontend
+   npm run dev
+   ```
+
+7. Otevřete prohlížeč a přejděte na `http://localhost:3000`
 
 ## Přispívání
 

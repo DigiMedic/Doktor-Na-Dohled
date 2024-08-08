@@ -1,13 +1,12 @@
-from fastapi import FastAPI, HTTPException, Depends, Request, Security
+from fastapi import FastAPI, HTTPException, Request
 from fastapi.responses import JSONResponse
-from fastapi.security import HTTPBasic, HTTPBasicCredentials
 from fastapi.middleware.cors import CORSMiddleware
-from langchain.chat_models import ChatOpenAI
+from langchain_community.chat_models import ChatOpenAI
 from langchain.prompts import ChatPromptTemplate
 from langchain.agents import AgentExecutor, create_openai_tools_agent
 from pydantic import BaseModel
-from app.tools.healthcare_tools import healthcare_tools
-from app.memory.conversation_memory import EnhancedConversationMemory
+from tools.healthcare_tools import healthcare_tools
+from memory.conversation_memory import EnhancedConversationMemory
 import os
 import logging
 from logging.handlers import RotatingFileHandler
@@ -17,7 +16,10 @@ from slowapi import Limiter, _rate_limit_exceeded_handler
 from slowapi.util import get_remote_address
 from slowapi.errors import RateLimitExceeded
 from starlette.status import HTTP_429_TOO_MANY_REQUESTS
-import secrets
+from dotenv import load_dotenv
+
+# Načtení proměnných prostředí
+load_dotenv()
 
 # Nastavení logování
 logging.basicConfig(level=logging.INFO)
@@ -43,26 +45,11 @@ app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
 # Nastavení CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # V produkci by mělo být omezeno na konkrétní domény
+    allow_origins=[os.getenv("FRONTEND_URL", "http://localhost:3000")],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
-# Základní autentizace
-security = HTTPBasic()
-
-def get_current_username(credentials: HTTPBasicCredentials = Depends(security)):
-    correct_username = os.getenv("API_USERNAME", "admin")
-    correct_password = os.getenv("API_PASSWORD", "password")
-    if not secrets.compare_digest(credentials.username, correct_username) or \
-       not secrets.compare_digest(credentials.password, correct_password):
-        raise HTTPException(
-            status_code=401,
-            detail="Nesprávné přihlašovací údaje",
-            headers={"WWW-Authenticate": "Basic"},
-        )
-    return credentials.username
 
 # Inicializace LLM
 def get_llm():
@@ -109,7 +96,7 @@ async def global_exception_handler(request: Request, exc: Exception):
 
 @app.post("/chat", response_model=dict)
 @limiter.limit("5/minute")
-async def chat(request: Request, user_input: UserInput, username: str = Depends(get_current_username)):
+async def chat(request: Request, user_input: UserInput):
     try:
         logger.info(f"Received user input: {user_input.message}")
         response = agent_executor.invoke({"input": user_input.message})
@@ -122,9 +109,9 @@ async def chat(request: Request, user_input: UserInput, username: str = Depends(
 
 @app.get("/")
 @limiter.limit("10/minute")
-async def root(request: Request, username: str = Depends(get_current_username)):
+async def root(request: Request):
     return {"message": "Vítejte v API Doktor-Na-Dohled. Použijte /docs pro zobrazení dokumentace API."}
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("PORT", 8000)))

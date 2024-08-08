@@ -17,49 +17,62 @@ Poskytnout uživatelům personalizované doporučení na poskytovatele zdravotni
 3. **Vyhledávání dat**: Na základě analýzy AI vyhledává odpovědi v integrovaných databázích.
 4. **Doporučení poskytovatelů**: AI poskytuje uživateli seznam vhodných poskytovatelů zdravotní péče spolu s kontaktními informacemi.
 5. **Personalizace**: Systém využívá uživatelský profil pro přizpůsobení doporučení.
-6. **Bezpečnost**: Implementováno základní zabezpečení včetně rate limitingu a autentizace.
+6. **Bezpečnost**: Implementováno základní zabezpečení včetně rate limitingu.
 
 ## Technologie a Architektura
 
-- **Backend**: FastAPI, LangChain
+- **Backend**: FastAPI, LangChain, Gunicorn (pro produkci)
 - **Frontend**: Next.js, Shadcn-UI komponenty
 - **AI Model**: OpenAI GPT-3.5 Turbo
 - **Databáze**: Simulovaná (plánováno rozšíření na reálnou databázi)
 
 ## Aktuální stav projektu
 
-- Implementován robustní backend s využitím FastAPI a LangChain
-- Vytvořeny základní AI nástroje pro vyhledávání poskytovatelů, analýzu kontextu a personalizaci
-- Implementováno základní zabezpečení včetně rate limitingu a autentizace
-- Připravena struktura pro rozšíření databáze poskytovatelů a zdravotnických informací
-- Implementován základní frontend pomocí Next.js a Shadcn-UI komponent
-- Vytvořeny komponenty pro chat, seznam poskytovatelů a uživatelský profil
-- Implementována real-time komunikace pomocí WebSocket
+Projekt DoktorNaDohled je ve fázi vývoje s následujícím stavem:
 
-## Další kroky
+- Implementován základní backend s využitím FastAPI a LangChain
+- Vytvořeny počáteční AI nástroje pro vyhledávání poskytovatelů a analýzu kontextu
+- Implementováno základní zabezpečení včetně rate limitingu
+- Připravena struktura pro frontend s využitím Next.js a Shadcn-UI komponent
+- Vytvořeny základní komponenty pro chat a seznam poskytovatelů
+- Implementována základní real-time komunikace
 
-1. Dokončení implementace frontendu:
-   - Integrace všech komponent do hlavní stránky
-   - Implementace stavového managementu pomocí React Context
-   - Optimalizace uživatelského rozhraní pro různé velikosti obrazovek
-2. Rozšíření testovacího pokrytí:
-   - Implementace unit testů pro frontend komponenty
-   - Rozšíření integračních testů pro backend
-3. Integrace s reálnou databází poskytovatelů zdravotní péče:
-   - Návrh a implementace databázového schématu
-   - Migrace dat ze simulované databáze do reálné
-4. Vylepšení personalizace a kontextové analýzy:
-   - Implementace pokročilejších algoritmů pro analýzu uživatelských vstupů
-   - Rozšíření uživatelského profilu o další relevantní informace
-5. Implementace pokročilejších bezpečnostních opatření:
-   - Zavedení JWT autentizace pro frontend
-   - Implementace HTTPS pro zabezpečenou komunikaci
-6. Příprava na produkční nasazení:
-   - Konfigurace prostředí pro různé fáze vývoje (development, staging, production)
-   - Implementace monitoringu a logování
-   - Optimalizace výkonu a škálování aplikace
+## Roadmapa
+
+1. Fáze 1 - Dokončení základní funkcionality (Aktuální fáze)
+   - [x] Implementace backendu s FastAPI a LangChain
+   - [x] Vytvoření základních AI nástrojů
+   - [x] Implementace základního zabezpečení
+   - [ ] Dokončení implementace EnhancedConversationMemory
+   - [ ] Integrace všech komponent do hlavní stránky frontendu
+
+2. Fáze 2 - Vylepšení a optimalizace
+   - [ ] Implementace pokročilé personalizace a kontextové analýzy
+   - [ ] Rozšíření testovacího pokrytí (unit testy, integrační testy)
+   - [ ] Optimalizace výkonu backendu a frontendu
+   - [ ] Implementace pokročilejších bezpečnostních opatření
+
+3. Fáze 3 - Škálování a produkční nasazení
+   - [ ] Integrace s reálnou databází poskytovatelů zdravotní péče
+   - [ ] Implementace škálovatelné architektury
+   - [ ] Nastavení produkčního prostředí a CI/CD pipeline
+   - [ ] Provedení zátěžových testů a optimalizace
+
+4. Fáze 4 - Rozšíření funkcionalit
+   - [ ] Implementace pokročilých analytických nástrojů
+   - [ ] Integrace s externími zdravotnickými systémy
+   - [ ] Vývoj mobilní aplikace
+   - [ ] Implementace vícejazyčné podpory
 
 ## Instalace a spuštění
+
+### Prerekvizity
+
+- Python 3.8+
+- Node.js 14+
+- npm nebo yarn
+
+### Kroky pro vývoj
 
 1. Klonujte repozitář:
    ```
@@ -79,24 +92,49 @@ Poskytnout uživatelům personalizované doporučení na poskytovatele zdravotni
    ```
 
 4. Nastavte proměnné prostředí:
-   ```
-   export OPENAI_API_KEY=your_openai_api_key
-   export API_USERNAME=your_api_username
-   export API_PASSWORD=your_api_password
-   ```
+   - Zkopírujte soubor `.env.example` do `.env` a upravte hodnoty podle potřeby:
+     ```
+     cp .env.example .env
+     ```
+   - Upravte hodnoty v souboru `.env` podle vašich potřeb
 
-5. Spuštění backendu:
+5. Spuštění backendu pro vývoj:
    ```
    python app/main.py
    ```
 
-6. Spuštění frontendu:
+6. Spuštění frontendu pro vývoj:
    ```
    cd frontend
    npm run dev
    ```
 
 7. Otevřete prohlížeč a přejděte na `http://localhost:3000`
+
+### Nasazení do produkce
+
+1. Backend:
+   - Nastavte proměnné prostředí v souboru `.env`
+   - Spusťte produkční server:
+     ```
+     bash run_production.sh
+     ```
+
+2. Frontend:
+   - Vytvořte produkční build:
+     ```
+     cd frontend
+     npm run build
+     ```
+   - Spusťte produkční server:
+     ```
+     npm start
+     ```
+
+## Vývoj
+
+- Můžete začít upravovat stránku úpravou `frontend/src/app/page.tsx`. Stránka se automaticky aktualizuje při úpravě souboru.
+- Tento projekt používá [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) pro automatickou optimalizaci a načítání Inter, vlastního Google Fontu.
 
 ## Přispívání
 

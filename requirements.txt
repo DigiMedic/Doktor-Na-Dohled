@@ -1,0 +1,10 @@
+fastapi
+uvicorn
+langchain
+langchain-community
+pydantic
+slowapi
+python-dotenv
+openai
+httpx
+gunicorn

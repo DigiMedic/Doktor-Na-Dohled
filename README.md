@@ -38,6 +38,9 @@ DoktorNaDohled je AI konverzační platforma zaměřená na poskytování releva
 
 ## Technologický stack
 
+### Národní registr poskytovatelů zdravotních služeb
+- https://data.gov.cz/datov%C3%A1-sada?iri=https://data.gov.cz/zdroj/datov%C3%A9-sady/00024341/aa4c99d9f1480cca59807389cf88d4dc
+
 ### Frontend
 - Framework: Next.js 14
 - Styling: Tailwind CSS

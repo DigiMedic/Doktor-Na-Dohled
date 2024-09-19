@@ -18,3 +18,73 @@ Poskytnout uživatelům personalizované doporučení na poskytovatele zdravotni
 4. **Doporučení poskytovatelů**: AI poskytuje uživateli seznam vhodných poskytovatelů zdravotní péče spolu s kontaktními informacemi.
 5. **Personalizace**: Systém využívá uživatelský profil pro přizpůsobení doporučení.
 6. **Bezpečnost**: Implementováno základní zabezpečení včetně rate limitingu.
+
+DoktorNaDohled je AI konverzační platforma zaměřená na poskytování relevantních informací a odpovědí na otázky uživatelů v oblasti zdravotnictví. Hlavním cílem je usnadnit nalezení vhodných zdravotních služeb a poskytnout uživatelům kontaktní informace o poskytovatelích zdravotní péče v celé České republice.
+
+## Cíle projektu
+
+1. Vytvořit uživatelsky přívětivou AI chatovací platformu pro vyhledávání zdravotních služeb.
+2. Poskytovat personalizovaná doporučení poskytovatelů zdravotní péče na základě potřeb uživatelů.
+3. Nabídnout přesné a aktuální informace o poskytovatelích zdravotní péče.
+4. Zlepšit přístup k informacím o zdravotní péči v České republice.
+5. Implementovat systém pro sběr a analýzu zpětné vazby od uživatelů.
+
+## Cílová skupina
+
+- Obyvatelé České republiky hledající poskytovatele zdravotní péče
+- Pacienti s chronickými onemocněními hledající specializovanou péči
+- Nově přistěhovalí obyvatelé hledající informace o místním zdravotním systému
+- Starší občané nebo jejich pečovatelé hledající specifické zdravotní služby
+
+## Technologický stack
+
+### Frontend
+- Framework: Next.js 14
+- Styling: Tailwind CSS
+- UI komponenty: Shadcn/UI
+- State management: React Context API
+
+### Backend
+- Serverless architektura: Vercel Serverless Functions
+- API Routes: Next.js API Routes
+
+### Databáze
+- Supabase
+
+### AI Integrace
+- Vercel AI SDK
+- OpenAI GPT-4
+- Groq
+
+
+### Monitoring a Analytics
+- Vercel Analytics
+- Sentry.io pro logování chyb
+
+### Verzování a CI/CD
+- Git pro verzování
+- GitHub Actions pro CI/CD
+- Vercel pro deployment
+
+## Roadmapa
+
+### Fáze 1: MVP
+1. Implementace základního chatovacího rozhraní
+2. Integrace AI pro vedení konverzace
+3. Vytvoření databáze poskytovatelů zdravotní péče
+4. Implementace základního doporučovacího systému
+5. Nasazení MVP verze
+
+## Potenciální výzvy a řešení
+
+1. Přesnost AI doporučení
+   - Řešení: Pravidelné trénování AI modelu, implementace mechanismu pro zpětnou vazbu
+
+2. Aktuálnost dat o poskytovatelích
+   - Řešení: Automatizovaný proces aktualizace dat, potenciální spolupráce s poskytovateli
+
+3. Ochrana osobních údajů
+   - Řešení: Implementace end-to-end šifrování, anonymizace dat, jasné informování uživatelů
+
+4. Škálování při vysokém zatížení
+   - Řešení: Využití cloudové infrastruktury s automatickým škálováním, optimalizace dotazů
